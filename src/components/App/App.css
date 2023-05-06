@@ -1,0 +1,87 @@
+@import url(../../vendor/normalize.css);
+@import url(../../vendor/font.css);
+
+.page{
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: 'Roboto', 'Arial', sans-serif;
+}
+
+.wrapper {
+  min-width: 320px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.conference__save-btn {
+  background-color: #0077FF;
+}
+
+.buttons {
+  width: 358px;
+  height: 50px;
+  font-size: 18px;
+  line-height: 22px;
+  color: white;
+  transition: transform 0.15s linear;
+  cursor: pointer;
+  text-decoration: none;
+  align-self: center;
+  border: none;
+  border-radius: 10px;
+}
+
+.conference__clear-btn {
+  background-color: #000000;
+}
+
+.buttons:hover {
+  transform: scale(1.02);
+}
+
+.conference__save-btn_disabled {
+  opacity: 0.6;
+  cursor: default;
+  pointer-events: none;
+}
+
+.conference__header {
+  max-width: 500px;
+  text-align: center;
+  margin: 0 auto 40px auto;
+  padding-top: 40px;
+  cursor: default;
+}
+
+.conference__form {
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.conference__dateTime-block {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-template-rows: repeat(2, auto);
+  row-gap: 20px;
+  column-gap: 20px;
+  grid-template-areas:
+    'date date'
+    'timeBeg timeEnd'
+  ;
+}
+
+.conference__datePicker {
+  grid-area: date;
+}
+
+.conference__timePicker:first-of-type {
+  grid-area: timeBeg;
+}
+
+.conference__timePicker:last-of-type {
+  grid-area: timeEnd;
+}

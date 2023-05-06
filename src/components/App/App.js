@@ -15,7 +15,7 @@ function App() {
   const [date, setDate] = useState(null);
   const [timeBeg, setTimeBeg] = useState(null);
   const [timeEnd, setTimeEnd] = useState(null);
-  const [comment, setComment] = useState(null);
+  const [comment, setComment] = useState('');
   const [isSaveButtonDisabled, setIsSaveButtonDisabled] = useState(true);
 
   const towers = [
@@ -23,20 +23,13 @@ function App() {
     { name: 'Башня B', code: 'B' },
   ]
 
-  /*useEffect(() => {
-      console.log(selectedTower.length)
-      console.log(selectedFloor.length)
-      console.log(selectedRoom.length)
-      console.log(date)
-      console.log(timeBeg)
-      console.log(timeEnd)
-
-    if (selectedTower.length > 0
-      && selectedFloor.length > 0
-      && selectedRoom.length > 0
-      && date.length > 0
-      && timeBeg.length > 0
-      && timeEnd.length > 0) {
+  useEffect(() => {
+    if (selectedTower !== null
+      && selectedFloor !== null
+      && selectedRoom !== null
+      && date !== null
+      && timeBeg !== null
+      && timeEnd !== null) {
       setIsSaveButtonDisabled(false);
     } else {
       setIsSaveButtonDisabled(true);
@@ -47,7 +40,7 @@ function App() {
       date,
       timeBeg,
       timeEnd
-  ])*/
+  ])
 
   const generateArr = (value) => {
     const data = [];
@@ -113,6 +106,7 @@ function App() {
               optionLabel="name"
               placeholder='Выберите башню'
               onChange={(e) => setSelectedTower(e.value)}
+							required
             />
 
             <Dropdown
@@ -121,6 +115,7 @@ function App() {
               optionLabel='name'
               placeholder='Выберите этаж'
               onChange={(e) => setSelectedFloor(e.value)}
+							required
             />
 
             <Dropdown
@@ -129,6 +124,7 @@ function App() {
               optionLabel='name'
               placeholder='Выберите номер комнаты'
               onChange={(e) => setSelectedRoom(e.value)}
+							required
             />
 
             <div className='conference__dateTime-block'>
@@ -139,6 +135,7 @@ function App() {
                 value={date}
                 onChange={(e) => setDate(e.value)}
                 dateFormat='dd/mm/y'
+								required
               />
 
               <Calendar
@@ -158,6 +155,7 @@ function App() {
                   setTimeBeg(dateB);
                 }}
                 timeOnly
+								required
               />
 
               <Calendar
@@ -177,6 +175,7 @@ function App() {
                   setTimeEnd(dateE);
                 }}
                 timeOnly
+								required = {true}
               />
             </div>
 

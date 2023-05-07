@@ -39,7 +39,7 @@
   transform: scale(1.02);
 }
 
-.conference__save-btn_disabled {
+.buttons_disabled {
   opacity: 0.6;
   cursor: default;
   pointer-events: none;
@@ -63,6 +63,7 @@
 }
 
 .conference__dateTime-block {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(2, auto);
   grid-template-rows: repeat(2, auto);
@@ -84,4 +85,37 @@
 
 .conference__timePicker:last-of-type {
   grid-area: timeEnd;
+}
+
+.conference__date-error {
+  position: absolute;
+  top: 43%;
+  left: 25%;
+  font-size: 12px;
+  line-height: 15px;
+  color: #FF0000;
+  visibility: hidden;
+}
+
+.conference__time-error {
+  position: absolute;
+  top: 103%;
+  left: 10%;
+  font-size: 12px;
+  line-height: 15px;
+  color: #FF0000;
+  visibility: hidden;
+}
+
+.conference__error_visible {
+  visibility: visible;
+}
+
+.conference__obligatory-field {
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 12px;
+  line-height: 15px;
+  text-align: center;
 }

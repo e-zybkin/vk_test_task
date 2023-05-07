@@ -8,6 +8,10 @@ import './App.css';
 import "primereact/resources/themes/lara-light-indigo/theme.css";
 import "primereact/resources/primereact.min.css";
 
+/*
+  - Добавить тёмную тему при нажатии на текст заголовка, либо же на логотип ВК
+*/
+
 function App() {
   const [selectedTower, setSelectedTower] = useState(null);
   const [selectedFloor, setSelectedFloor] = useState(null);
@@ -16,7 +20,11 @@ function App() {
   const [timeBeg, setTimeBeg] = useState(null);
   const [timeEnd, setTimeEnd] = useState(null);
   const [comment, setComment] = useState('');
+
   const [isSaveButtonDisabled, setIsSaveButtonDisabled] = useState(true);
+  const [isClearButtonDisabled, setIsClearButtonDisabled] = useState(true);
+  const [isDateValid, setIsDateValid] = useState(true);
+  const [isTimeValid, setIsTimeValid] = useState(true);
 
   const towers = [
     { name: 'Башня A', code: 'A' },
@@ -29,18 +37,53 @@ function App() {
       && selectedRoom !== null
       && date !== null
       && timeBeg !== null
-      && timeEnd !== null) {
+      && timeEnd !== null
+      && isDateValid
+      && isTimeValid) {
       setIsSaveButtonDisabled(false);
     } else {
       setIsSaveButtonDisabled(true);
+    }
+
+		if (selectedTower !== null
+      || selectedFloor !== null
+      || selectedRoom !== null
+      || date !== null
+      || timeBeg !== null
+      || timeEnd !== null) {
+      setIsClearButtonDisabled(false);
+    } else {
+      setIsClearButtonDisabled(true);
     }
   }, [selectedTower,
       selectedFloor,
       selectedRoom,
       date,
       timeBeg,
-      timeEnd
+      timeEnd,
+      isDateValid,
+      isTimeValid,
   ])
+
+  useEffect(() => {
+    if (date !== null) {
+      if (date.getTime() < new Date().getTime()) {
+        setIsDateValid(false);
+      } else {
+        setIsDateValid(true);
+      }
+    }
+  }, [date])
+
+  useEffect(() => {
+    if (timeBeg !== null && timeEnd !== null) {
+      if (timeBeg.getTime() < timeEnd.getTime()) {
+        setIsTimeValid(true);
+      } else {
+        setIsTimeValid(false);
+      }
+    }
+  }, [timeEnd])
 
   const generateArr = (value) => {
     const data = [];
@@ -65,9 +108,8 @@ function App() {
       room: selectedRoom.code,
       /*закомментированное на случай, если нужны будут красивые цифры в консоли
       (ну или захочется помучить бэкендеров :D)*/
-      date,//: date.toLocaleDateString(),
-      timeBeg,//: timeBeg.toLocaleTimeString(),
-      timeEnd,//: timeEnd.toLocaleTimeString(),
+      Begin: timeBeg,//: timeBeg.toLocaleTimeString(),
+      End: timeEnd,//: timeEnd.toLocaleTimeString(),
       comment,
     }
 
@@ -84,6 +126,8 @@ function App() {
     setTimeBeg(null);
     setTimeEnd(null);
     setComment('');
+    setIsDateValid(true);
+    setIsTimeValid(true);
   }
 
   addLocale('ru', localeRu.ru)
@@ -104,7 +148,7 @@ function App() {
               value={selectedTower}
               options={towers}
               optionLabel="name"
-              placeholder='Выберите башню'
+              placeholder='Выберите башню *'
               onChange={(e) => setSelectedTower(e.value)}
 							required
             />
@@ -113,7 +157,7 @@ function App() {
               value={selectedFloor}
               options={generateArr('floor')}
               optionLabel='name'
-              placeholder='Выберите этаж'
+              placeholder='Выберите этаж *'
               onChange={(e) => setSelectedFloor(e.value)}
 							required
             />
@@ -122,14 +166,14 @@ function App() {
               value={selectedRoom}
               options={generateArr('room')}
               optionLabel='name'
-              placeholder='Выберите номер комнаты'
+              placeholder='Выберите номер комнаты *'
               onChange={(e) => setSelectedRoom(e.value)}
 							required
             />
 
             <div className='conference__dateTime-block'>
               <Calendar
-                placeholder='Выберите дату'
+                placeholder='Выберите дату *'
                 locale='ru'
                 className='conference__datePicker'
                 value={date}
@@ -138,9 +182,13 @@ function App() {
 								required
               />
 
+              <span className={`conference__date-error ${isDateValid ? '' : 'conference__error_visible'}`}>
+                Нельзя выбирать прошедшую дату
+              </span>
+
               <Calendar
                 className='conference__timePicker'
-                placeholder='Время начала'
+                placeholder='Время начала *'
                 locale='ru'
                 value={timeBeg}
                 onChange={(e) => {
@@ -156,11 +204,12 @@ function App() {
                 }}
                 timeOnly
 								required
+                disabled={isDateValid === (date === null)}
               />
 
               <Calendar
                 className='conference__timePicker'
-                placeholder='Время окончания'
+                placeholder='Время окончания *'
                 locale='ru'
                 value={timeEnd}
                 onChange={(e) => {
@@ -176,7 +225,12 @@ function App() {
                 }}
                 timeOnly
 								required = {true}
+                disabled = {isDateValid === (date === null)}
               />
+
+              <span className={`conference__time-error ${isTimeValid ? '' : 'conference__error_visible'}`}>
+                Время окончания должно быть позже времени начала
+              </span>
             </div>
 
 
@@ -189,16 +243,17 @@ function App() {
 
             <button
               type='submit'
-              className={`conference__save-btn buttons ${isSaveButtonDisabled ? 'conference__save-btn_disabled': ''}`}
+              className={`conference__save-btn buttons ${isSaveButtonDisabled ? 'buttons_disabled': ''}`}
               disabled={isSaveButtonDisabled}
             >Отправить</button>
 
             <button
               type='button'
-              className={`conference__clear-btn buttons`}
+              className={`conference__clear-btn buttons ${isClearButtonDisabled ? 'buttons_disabled': ''}`}
               onClick={clearFields}
             >Очистить</button>
           </form>
+          <p className='conference__obligatory-field'>* - поле, обязательное для заполнения</p>
         </div>
       </div>
     </div>

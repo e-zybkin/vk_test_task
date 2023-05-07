@@ -63,7 +63,16 @@ function App() {
 
   useEffect(() => {
     if (date !== null) {
-      if (date.getTime() < new Date().getTime()) {
+      const dateForToday = new Date();
+      const today = new Date(
+        dateForToday.getFullYear(),
+        dateForToday.getMonth(),
+        dateForToday.getDate(),
+        date.getHours(),
+        date.getMinutes(),
+        date.getSeconds(),
+      )
+      if (date.getTime() < today.getTime()) {
         setIsDateValid(false);
       } else {
         setIsDateValid(true);

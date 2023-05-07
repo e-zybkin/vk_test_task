@@ -8,10 +8,6 @@ import './App.css';
 import "primereact/resources/themes/lara-light-indigo/theme.css";
 import "primereact/resources/primereact.min.css";
 
-/*
-  - Добавить тёмную тему при нажатии на текст заголовка, либо же на логотип ВК
-*/
-
 function App() {
   const [selectedTower, setSelectedTower] = useState(null);
   const [selectedFloor, setSelectedFloor] = useState(null);

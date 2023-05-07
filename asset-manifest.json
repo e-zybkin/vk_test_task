@@ -1,0 +1,38 @@
+{
+  "files": {
+    "main.css": "/vk_test_task/static/css/main.941957aa.css",
+    "main.js": "/vk_test_task/static/js/main.657d1b42.js",
+    "static/js/787.8b1a8cc1.chunk.js": "/vk_test_task/static/js/787.8b1a8cc1.chunk.js",
+    "static/media/Roboto-BlackItalic.woff": "/vk_test_task/static/media/Roboto-BlackItalic.3123587706218b4d8187.woff",
+    "static/media/Roboto-LightItalic.woff": "/vk_test_task/static/media/Roboto-LightItalic.3c494714cdd1de859813.woff",
+    "static/media/Roboto-BoldItalic.woff": "/vk_test_task/static/media/Roboto-BoldItalic.997a1e8970d2b7e50fff.woff",
+    "static/media/Roboto-Italic.woff": "/vk_test_task/static/media/Roboto-Italic.0d0bf30e7eeb4f6e7fd5.woff",
+    "static/media/Roboto-ThinItalic.woff": "/vk_test_task/static/media/Roboto-ThinItalic.d5937d18c46d7ae260b6.woff",
+    "static/media/Roboto-Medium.woff": "/vk_test_task/static/media/Roboto-Medium.b14ca2d2b289afceb0b0.woff",
+    "static/media/Roboto-Black.woff": "/vk_test_task/static/media/Roboto-Black.88d7f1b3ca9a9494d8e3.woff",
+    "static/media/Roboto-Bold.woff": "/vk_test_task/static/media/Roboto-Bold.3f2cbde6b72e8d05669f.woff",
+    "static/media/Roboto-Regular.woff": "/vk_test_task/static/media/Roboto-Regular.31012f9b3e3da44f87e8.woff",
+    "static/media/Roboto-Light.woff": "/vk_test_task/static/media/Roboto-Light.df0f59d80526acc6d0cd.woff",
+    "static/media/Roboto-Thin.woff": "/vk_test_task/static/media/Roboto-Thin.674b1d2bd9d781457c17.woff",
+    "static/media/Roboto-BlackItalic.woff2": "/vk_test_task/static/media/Roboto-BlackItalic.71b2b84d5d1a55271b57.woff2",
+    "static/media/Roboto-LightItalic.woff2": "/vk_test_task/static/media/Roboto-LightItalic.6006fa5b67e554e06562.woff2",
+    "static/media/Roboto-Italic.woff2": "/vk_test_task/static/media/Roboto-Italic.007ccbd3e8708c6afef8.woff2",
+    "static/media/Roboto-BoldItalic.woff2": "/vk_test_task/static/media/Roboto-BoldItalic.74126ecd07ad0d25d3f6.woff2",
+    "static/media/Roboto-ThinItalic.woff2": "/vk_test_task/static/media/Roboto-ThinItalic.3669a8fac8736f85a7f1.woff2",
+    "static/media/Roboto-Medium.woff2": "/vk_test_task/static/media/Roboto-Medium.fc0337b9cf1cce2e6e1e.woff2",
+    "static/media/Roboto-Black.woff2": "/vk_test_task/static/media/Roboto-Black.ae0c1d409f7d45d81c29.woff2",
+    "static/media/Roboto-Bold.woff2": "/vk_test_task/static/media/Roboto-Bold.6cd35edfbc0d7a417131.woff2",
+    "static/media/Roboto-Regular.woff2": "/vk_test_task/static/media/Roboto-Regular.a25806274237d06e00a6.woff2",
+    "static/media/Roboto-Light.woff2": "/vk_test_task/static/media/Roboto-Light.d537674e9e217fa53a13.woff2",
+    "static/media/Roboto-Thin.woff2": "/vk_test_task/static/media/Roboto-Thin.0b33782009e32497dba2.woff2",
+    "static/media/color.png": "/vk_test_task/static/media/color.6441e63a57ccc5105bad.png",
+    "index.html": "/vk_test_task/index.html",
+    "main.941957aa.css.map": "/vk_test_task/static/css/main.941957aa.css.map",
+    "main.657d1b42.js.map": "/vk_test_task/static/js/main.657d1b42.js.map",
+    "787.8b1a8cc1.chunk.js.map": "/vk_test_task/static/js/787.8b1a8cc1.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.941957aa.css",
+    "static/js/main.657d1b42.js"
+  ]
+}
